@@ -1,3 +1,15 @@
+function valueSetters(){
+    gsap.set("#nav a", {y:"-100%", opacity:0})
+    gsap.set("#home span .child", {y: "100%"})
+    gsap.set("#home .row img", {opacity:0})
+
+    document.querySelectorAll("#Visual>g").forEach(function (e){
+        var character = e.childNodes[0].childNodes[0]
+        character.style.strokeDasharray = character.getTotalLength()+ "px";
+        character.style.strokeDashoffset = character.getTotalLength()+ "px";
+    })
+
+}
 function revealToSpan(){
     document.querySelectorAll(".reveal")
     .forEach(function(elem){
@@ -14,20 +26,18 @@ function revealToSpan(){
     elem.innerHTML="";
     elem.appendChild(parent);
 })}
-
-revealToSpan();
-
-let tl = gsap.timeline();
+function loaderAnimation(){
+    let tl = gsap.timeline();
 
 tl
-.from(".child span",{
+.from("#loader .child span",{
     x: "100",
     duration:1.5,
     stagger: 0.2,
     delay: 1,
     ease: Power3.easeInOut
 })
-.to(".parent .child",{
+.to("#loader .parent .child",{
     y: "-100%",
     duration:1,
     ease: Circ.easeInOut
@@ -48,7 +58,60 @@ tl
     height: 0,
     duration:1,
     delay: -0.5,
-    ease: Circ.easeInOut
+    ease: Circ.easeInOut,
+    onComplete: function(){
+        animateHomepage();
+    }
 })
+
+}
+function animateHomepage(){
+
+    let t1 = gsap.timeline();
+    
+    t1.to("#nav a", {
+        y:0,
+        opacity:1,
+        stagger: .05,
+        ease: Expo.easeInOut,
+    })
+    .to("#home .parent .child", {
+        y:0,
+        stagger: .1,
+        duration:1.5,
+        ease: Expo.easeInOut,
+    })
+    .to("#home .row img", {
+        opacity:1,
+        delay:-.5,
+        ease: Expo.easeInOut,
+        onComplete: function(){
+            animateSvg();
+
+        }
+    })
+}
+function animateSvg(){
+
+    gsap.to("#Visual>g>g>path , #Visual>g>g>polyline",{
+        strokeDashoffset: 0,
+        duration:2,
+        ease:Expo.easeInOut,
+        
+
+    })
+
+
+}
+
+
+
+revealToSpan();
+valueSetters();
+loaderAnimation();
+
+
+
+
 
 

@@ -103,12 +103,18 @@ function animateSvg(){
 
 
 }
-
+function locoInitialize(){
+    const scroll = new LocomotiveScroll({
+        el: document.querySelector('#main'),
+        smooth: true
+    });   
+}
 
 
 revealToSpan();
 valueSetters();
 loaderAnimation();
+locoInitialize()
 
 
 

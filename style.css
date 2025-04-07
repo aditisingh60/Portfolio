@@ -293,7 +293,7 @@ path,polyline{
 .cnt img{
     width: 115%;
     position: relative;
-    /* top: 12vw; */
+    top: 12vw;
     border-radius: 50px;
 }
 @media (max-width:768px) {

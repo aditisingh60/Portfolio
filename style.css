@@ -121,9 +121,9 @@ body.loading {
     margin-top: 20vw;
     width: 100%;
     padding: 0 7vw;
-    opacity: 0; /* Start with opacity 0 */
-    visibility: hidden; /* Start with hidden visibility */
-    transition: opacity 0.2s ease, visibility 0.2s ease; /* Add smooth transition */
+    opacity: 0; 
+    visibility: hidden; 
+    transition: opacity 0.2s ease, visibility 0.2s ease; 
 }
 #nav a .line{
     position: absolute;
@@ -238,13 +238,13 @@ path,polyline{
 }
 #imgrig .imgcntrnr:nth-child(1){
     transform: translate(-40%, -8%) rotate(-20deg);
-    background-image: url(imp\ 4.jpeg);
+    background-image: url(imp-4.jpeg);
     background-size: cover;
     background-position: center;
 }
 #imgrig .imgcntrnr:nth-child(2){
     transform: translate(-15%, 0%) rotate(-15deg);
-    background-image: url(img-p1.jpeg);
+    background-image: url(im-6.jpeg);
     background-size: cover;
     background-position: center;
 }
